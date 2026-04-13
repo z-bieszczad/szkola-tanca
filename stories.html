@@ -3,136 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Backlog Klubu Tanecznego</title>
+    <title>Backlog Klubu Tanecznego - Widok Poziomy</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .filter-btn.active { background-color: #4f46e5; color: white; }
+        .filter-btn.active { background-color: #4f46e5; color: white; border-color: #4f46e5; }
+        .story-text b { color: #1e293b; font-weight: 800; }
+        .story-text span { color: #64748b; font-style: italic; display: block; margin-top: 4px; font-size: 0.8rem; }
     </style>
 </head>
-<body class="bg-slate-50 min-h-screen p-4 md:p-10 font-sans">
+<body class="bg-slate-100 min-h-screen p-4 md:p-8">
 
-    <div class="max-w-7xl mx-auto">
-        <header class="text-center mb-12">
-            <h1 class="text-4xl font-extrabold text-slate-900 mb-2">System Zarządzania Klubem Tanecznym</h1>
+    <div class="max-w-[1600px] mx-auto">
+        <header class="mb-8 text-center">
+            <h1 class="text-4xl font-black text-slate-900 tracking-tighter uppercase">System Zarządzania Klubem Tanecznym</h1>
+            
         </header>
 
         <div class="flex flex-wrap justify-center gap-3 mb-10">
-            <button onclick="filterRole('all')" class="filter-btn active px-6 py-2 rounded-full border border-indigo-600 font-medium transition-all hover:bg-indigo-50">Wszyscy</button>
-            <button onclick="filterRole('admin')" class="filter-btn px-6 py-2 rounded-full border border-red-500 text-red-600 font-medium transition-all hover:bg-red-50">Administrator</button>
-            <button onclick="filterRole('instructor')" class="filter-btn px-6 py-2 rounded-full border border-blue-500 text-blue-600 font-medium transition-all hover:bg-blue-50">Instruktor</button>
-            <button onclick="filterRole('student')" class="filter-btn px-6 py-2 rounded-full border border-green-500 text-green-600 font-medium transition-all hover:bg-green-50">Kursant</button>
+            <button onclick="filterRole('all')" class="filter-btn active px-6 py-2 rounded-full border-2 border-slate-300 font-bold text-xs transition-all">WSZYSTKIE ROLE</button>
+            <button onclick="filterRole('admin')" class="filter-btn px-6 py-2 rounded-full border-2 border-red-500 text-red-600 font-bold text-xs transition-all">ADMINISTRATOR</button>
+            <button onclick="filterRole('instructor')" class="filter-btn px-6 py-2 rounded-full border-2 border-blue-500 text-blue-600 font-bold text-xs transition-all">INSTRUKTOR</button>
+            <button onclick="filterRole('student')" class="filter-btn px-6 py-2 rounded-full border-2 border-green-600 text-green-700 font-bold text-xs transition-all">KURSANT</button>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
             
-            <div class="epic-column">
-                <div class="bg-indigo-900 text-white p-4 rounded-t-xl">
-                    <h2 class="font-bold uppercase tracking-wider text-sm">Epic: Zarządzanie Zasobami</h2>
+            <div class="flex flex-col">
+                <div class="bg-slate-800 text-white p-4 rounded-t-2xl shadow-lg">
+                    <h2 class="font-black text-center tracking-widest text-sm">EPIC: ZARZĄDZANIE ZASOBAMI</h2>
                 </div>
-                <div class="bg-slate-200/50 p-4 rounded-b-xl space-y-4 min-h-[500px]">
-                    <div class="card admin bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-500">
-                        <p class="text-xs font-bold text-red-500 mb-1">ADMIN</p>
-                        <p class="text-sm text-slate-700">Definiowanie parametrów sal (metraż, podłoga, sprzęt).</p>
+                <div class="bg-white/60 p-4 rounded-b-2xl space-y-4 shadow-sm min-h-[600px]">
+                    <div class="card admin bg-white p-4 rounded-xl shadow border-l-8 border-red-500">
+                        <p class="story-text text-sm"><b>Jako admin</b>, chcę zdefiniować parametry sal (metraż, podłoga), <span>aby móc automatycznie przypisywać odpowiednie grupy.</span></p>
                     </div>
-                    <div class="card admin bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-500">
-                        <p class="text-xs font-bold text-red-500 mb-1">ADMIN</p>
-                        <p class="text-sm text-slate-700">Zarządzanie bazą zastępstw instruktorów.</p>
+                    <div class="card admin bg-white p-4 rounded-xl shadow border-l-8 border-red-500">
+                        <p class="story-text text-sm"><b>Jako admin</b>, chcę zarządzać bazą zastępstw, <span>aby w razie choroby instruktora szybko przypisać trenera.</span></p>
                     </div>
-                    <div class="card student bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
-                        <p class="text-xs font-bold text-green-500 mb-1">KURSANT</p>
-                        <p class="text-sm text-slate-700">Filtrowanie treningów według dostępności konkretnych sal.</p>
+                    <div class="card instructor bg-white p-4 rounded-xl shadow border-l-8 border-blue-500">
+                        <p class="story-text text-sm"><b>Jako instruktor</b>, chcę zgłaszać prośby o zmianę sali w aplikacji, <span>aby administrator mógł je szybko zatwierdzić.</span></p>
                     </div>
-                </div>
-            </div>
-
-            <div class="epic-column">
-                <div class="bg-indigo-800 text-white p-4 rounded-t-xl">
-                    <h2 class="font-bold uppercase tracking-wider text-sm">Epic: Planowanie i Grafik</h2>
-                </div>
-                <div class="bg-slate-200/50 p-4 rounded-b-xl space-y-4 min-h-[500px]">
-                    <div class="card admin bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-500">
-                        <p class="text-xs font-bold text-red-500 mb-1">ADMIN</p>
-                        <p class="text-sm text-slate-700">Podgląd kalendarza wszystkich sal jednocześnie (widok kolizji).</p>
+                    <div class="card student bg-white p-4 rounded-xl shadow border-l-8 border-green-600">
+                        <p class="story-text text-sm"><b>Jako kursant</b>, chcę filtrować zajęcia po lokalizacji sal, <span>aby wybrać te najbliżej mojego domu.</span></p>
                     </div>
-                    <div class="card admin bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-500">
-                        <p class="text-xs font-bold text-red-500 mb-1">ADMIN</p>
-                        <p class="text-sm text-slate-700">Generowanie grafiku semestralnego dla cykli treningowych.</p>
-                    </div>
-                    <div class="card admin bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-500">
-                        <p class="text-xs font-bold text-red-500 mb-1">ADMIN</p>
-                        <p class="text-sm text-slate-700">Przenoszenie zajęć między salami (Drag & Drop).</p>
-                    </div>
-                    <div class="card student bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
-                        <p class="text-xs font-bold text-green-500 mb-1">KURSANT</p>
-                        <p class="text-sm text-slate-700">Przejrzysty grafik z podziałem na style i instruktorów.</p>
-                    </div>
-                    <div class="card student bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
-                        <p class="text-xs font-bold text-green-500 mb-1">KURSANT</p>
-                        <p class="text-sm text-slate-700">Zapis na listę rezerwową przy braku wolnych miejsc.</p>
+                    <div class="card student bg-white p-4 rounded-xl shadow border-l-8 border-green-600">
+                        <p class="story-text text-sm"><b>Jako kursant</b>, chcę widzieć informację o zastępstwie, <span>aby wiedzieć, z kim będę trenować w danym dniu.</span></p>
                     </div>
                 </div>
             </div>
 
-            <div class="epic-column">
-                <div class="bg-indigo-700 text-white p-4 rounded-t-xl">
-                    <h2 class="font-bold uppercase tracking-wider text-sm">Epic: Komunikacja</h2>
+            <div class="flex flex-col">
+                <div class="bg-slate-700 text-white p-4 rounded-t-2xl shadow-lg">
+                    <h2 class="font-black text-center tracking-widest text-sm">EPIC: GRAFIK</h2>
                 </div>
-                <div class="bg-slate-200/50 p-4 rounded-b-xl space-y-4 min-h-[500px]">
-                    <div class="card admin bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-500">
-                        <p class="text-xs font-bold text-red-500 mb-1">ADMIN</p>
-                        <p class="text-sm text-slate-700">Blokowanie sal na warsztaty zewnętrzne i wynajem.</p>
+                <div class="bg-white/60 p-4 rounded-b-2xl space-y-4 shadow-sm min-h-[600px]">
+                    <div class="card admin bg-white p-4 rounded-xl shadow border-l-8 border-red-500">
+                        <p class="story-text text-sm"><b>Jako admin</b>, chcę widzieć widok kalendarza wszystkich sal naraz, <span>aby uniknąć nakładania się treningów.</span></p>
                     </div>
-                    <div class="card student bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
-                        <p class="text-xs font-bold text-green-500 mb-1">KURSANT</p>
-                        <p class="text-sm text-slate-700">Powiadomienia PUSH/SMS o odwołaniu lub przesunięciu zajęć.</p>
+                    <div class="card admin bg-white p-4 rounded-xl shadow border-l-8 border-red-500">
+                        <p class="story-text text-sm"><b>Jako admin</b>, chcę przypisać instruktora do cyklu, <span>aby system automatycznie wygenerował grafik semestralny.</span></p>
                     </div>
-                    <div class="card instructor bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500">
-                        <p class="text-xs font-bold text-blue-500 mb-1">INSTRUKTOR</p>
-                        <p class="text-sm text-slate-700">Wysyłanie szybkich komunikatów do grupy (np. o obuwiu).</p>
+                    <div class="card admin bg-white p-4 rounded-xl shadow border-l-8 border-red-500">
+                        <p class="story-text text-sm"><b>Jako admin</b>, chcę przesuwać zajęcia (Drag & Drop), <span>aby błyskawicznie reagować na zmiany w planie.</span></p>
                     </div>
-                    <div class="card instructor bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500">
-                        <p class="text-xs font-bold text-blue-500 mb-1">INSTRUKTOR</p>
-                        <p class="text-sm text-slate-700">Otrzymywanie powiadomień o zmianach naniesionych przez admina.</p>
+                    <div class="card student bg-white p-4 rounded-xl shadow border-l-8 border-green-600">
+                        <p class="story-text text-sm"><b>Jako kursant</b>, chcę widzieć przejrzysty podział stylów, <span>aby łatwo wybrać odpowiedni kurs.</span></p>
                     </div>
-                    <div class="card student bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
-                        <p class="text-xs font-bold text-green-500 mb-1">KURSANT</p>
-                        <p class="text-sm text-slate-700">Informacja o zastępstwie widoczna w grafiku.</p>
+                    <div class="card student bg-white p-4 rounded-xl shadow border-l-8 border-green-600">
+                        <p class="story-text text-sm"><b>Jako kursant</b>, chcę zapisać się na listę rezerwową, <span>aby otrzymać powiadomienie o zwolnieniu miejsca.</span></p>
                     </div>
                 </div>
             </div>
 
-            <div class="epic-column">
-                <div class="bg-indigo-600 text-white p-4 rounded-t-xl">
-                    <h2 class="font-bold uppercase tracking-wider text-sm">Epic: Panel Użytkownika</h2>
+            <div class="flex flex-col">
+                <div class="bg-slate-600 text-white p-4 rounded-t-2xl shadow-lg">
+                    <h2 class="font-black text-center tracking-widest text-sm">EPIC: KOMUNIKACJA</h2>
                 </div>
-                <div class="bg-slate-200/50 p-4 rounded-b-xl space-y-4 min-h-[500px]">
-                    <div class="card admin bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-500">
-                        <p class="text-xs font-bold text-red-500 mb-1">ADMIN</p>
-                        <p class="text-sm text-slate-700">System ostrzeżeń o dublowaniu godzin instruktora.</p>
+                <div class="bg-white/60 p-4 rounded-b-2xl space-y-4 shadow-sm min-h-[600px]">
+                    <div class="card admin bg-white p-4 rounded-xl shadow border-l-8 border-red-500">
+                        <p class="story-text text-sm"><b>Jako admin</b>, chcę blokować sale na warsztaty zewnętrzne, <span>aby wyłączyć je z regularnego grafiku.</span></p>
                     </div>
-                    <div class="card instructor bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500">
-                        <p class="text-xs font-bold text-blue-500 mb-1">INSTRUKTOR</p>
-                        <p class="text-sm text-slate-700">Dostęp do grafiku mobilnego i numeru sali.</p>
+                    <div class="card student bg-white p-4 rounded-xl shadow border-l-8 border-green-600">
+                        <p class="story-text text-sm"><b>Jako kursant</b>, chcę otrzymywać alerty PUSH o odwołaniu zajęć, <span>aby nie tracić czasu na dojazd.</span></p>
                     </div>
-                    <div class="card instructor bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500">
-                        <p class="text-xs font-bold text-blue-500 mb-1">INSTRUKTOR</p>
-                        <p class="text-sm text-slate-700">Zgłaszanie potrzeb zmiany sali przez aplikację.</p>
+                    <div class="card instructor bg-white p-4 rounded-xl shadow border-l-8 border-blue-500">
+                        <p class="story-text text-sm"><b>Jako instruktor</b>, chcę wysyłać komunikaty do moich grup, <span>aby przekazać info o np. zmianie obuwia.</span></p>
                     </div>
-                    <div class="card instructor bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500">
-                        <p class="text-xs font-bold text-blue-500 mb-1">INSTRUKTOR</p>
-                        <p class="text-sm text-slate-700">Podgląd listy obecności i liczby kursantów.</p>
+                    <div class="card instructor bg-white p-4 rounded-xl shadow border-l-8 border-blue-500">
+                        <p class="story-text text-sm"><b>Jako instruktor</b>, chcę otrzymywać powiadomienia o zmianach od admina, <span>aby uniknąć pomyłek w grafiku.</span></p>
                     </div>
-                    <div class="card instructor bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500">
-                        <p class="text-xs font-bold text-blue-500 mb-1">INSTRUKTOR</p>
-                        <p class="text-sm text-slate-700">Wgląd w historię godzin i rozliczenie wynagrodzenia.</p>
+                    <div class="card student bg-white p-4 rounded-xl shadow border-l-8 border-green-600">
+                        <p class="story-text text-sm"><b>Jako kursant</b>, chcę powiadomienia o zwolnieniu miejsca, <span>aby móc się błyskawicznie dopisać do grupy.</span></p>
                     </div>
-                    <div class="card student bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
-                        <p class="text-xs font-bold text-green-500 mb-1">KURSANT</p>
-                        <p class="text-sm text-slate-700">Synchronizacja treningów z Google Calendar/iCal.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col">
+                <div class="bg-slate-500 text-white p-4 rounded-t-2xl shadow-lg">
+                    <h2 class="font-black text-center tracking-widest text-sm">EPIC: PANEL UŻYTKOWNIKA</h2>
+                </div>
+                <div class="bg-white/60 p-4 rounded-b-2xl space-y-4 shadow-sm min-h-[600px]">
+                    <div class="card admin bg-white p-4 rounded-xl shadow border-l-8 border-red-500">
+                        <p class="story-text text-sm"><b>Jako admin</b>, chcę alerty o dublowaniu godzin instruktora, <span>aby uniknąć błędów w wypłatach wynagrodzeń.</span></p>
                     </div>
-                    <div class="card student bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
-                        <p class="text-xs font-bold text-green-500 mb-1">KURSANT</p>
-                        <p class="text-sm text-slate-700">System oceniania treningu i sali po zajęciach.</p>
+                    <div class="card instructor bg-white p-4 rounded-xl shadow border-l-8 border-blue-500">
+                        <p class="story-text text-sm"><b>Jako instruktor</b>, chcę widzieć listę uczestników na dany trening, <span>aby przygotować materiał pod wielkość grupy.</span></p>
+                    </div>
+                    <div class="card instructor bg-white p-4 rounded-xl shadow border-l-8 border-blue-500">
+                        <p class="story-text text-sm"><b>Jako instruktor</b>, chcę mieć dostęp do grafiku w telefonie, <span>aby móc sprawdzić plan pracy w dowolnym miejscu.</span></p>
+                    </div>
+                    <div class="card instructor bg-white p-4 rounded-xl shadow border-l-8 border-blue-500">
+                        <p class="story-text text-sm"><b>Jako instruktor</b>, chcę widzieć historię swoich godzin, <span>aby móc kontrolować swoje zarobki.</span></p>
+                    </div>
+                    <div class="card student bg-white p-4 rounded-xl shadow border-l-8 border-green-600">
+                        <p class="story-text text-sm"><b>Jako kursant</b>, chcę synchronizować grafik z Google Calendar, <span>aby widzieć treningi obok moich innych planów.</span></p>
+                    </div>
+                    <div class="card student bg-white p-4 rounded-xl shadow border-l-8 border-green-600">
+                        <p class="story-text text-sm"><b>Jako kursant</b>, chcę oceniać treningi i sale po zajęciach, <span>aby klub mógł podnosić jakość usług.</span></p>
                     </div>
                 </div>
             </div>
@@ -142,11 +128,11 @@
 
     <script>
         function filterRole(role) {
-            // Update buttons
+            // Zmiana wyglądu przycisków
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
 
-            // Filter cards
+            // Filtrowanie kart
             const cards = document.querySelectorAll('.card');
             cards.forEach(card => {
                 if (role === 'all') {
